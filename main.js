@@ -1,12 +1,12 @@
 const myContainer = document.getElementById('container')
 const paragraphContainer = document.getElementById('paragraph-container')
 fetch("https://www.course-api.com/javascript-store-products")
-    .then(response=>{
+    .then(response=>{//if fetch is ok resolve to json
         if(!response.ok){
             throw new Error("Bad URL");}
         return response.json();
     })
-    .then(data=>{
+    .then(data=>{//for loop to display the images and format the data
         for (let i = 0; i < data.length; i++) {
             let companyName = data[i].fields.company;
             let companyImage = data[i].fields.image;
@@ -25,5 +25,5 @@ fetch("https://www.course-api.com/javascript-store-products")
             
         }
     })
-    .catch(error=>console.error(error));
+    .catch(error=>console.error(error));//catch errors and handle gracefully
     document.body.style.backgroundColor = "lightblue"
